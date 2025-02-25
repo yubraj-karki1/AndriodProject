@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">semProject</string>
+    <string name="intro_title">Step into your <font color="#6033ba"> style\n A world of shoes</font></string>
+    <string name="intro_text">Browse the latest styles from top brands\nGet personalized recommendations\nEnjoy fast, free delivery</string>
+    <string name="intro_signup">Already have an account? <font color="#6033ba">Sign In</font></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

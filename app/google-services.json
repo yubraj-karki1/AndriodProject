@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "757320563840",
+    "firebase_url": "https://semproject-6735b-default-rtdb.firebaseio.com",
+    "project_id": "semproject-6735b",
+    "storage_bucket": "semproject-6735b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757320563840:android:21c638ba9780660a54ba65",
+        "android_client_info": {
+          "package_name": "com.example.semproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJVJnyivtcQCq5DXOksqBhsmCP6Yb04WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
