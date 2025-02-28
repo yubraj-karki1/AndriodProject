@@ -7,35 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.DashBoardActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:layout_width="417dp"
-        android:layout_height="727dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/sample_prduct" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingBtn"
-        android:layout_width="61dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add_24" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/recycleView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/recycleView"
-        app:layout_constraintTop_toTopOf="@+id/recycleView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

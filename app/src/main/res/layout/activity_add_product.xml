@@ -8,6 +8,23 @@
     android:background="@drawable/backgroundlogin"
     tools:context=".ui.activity.AddProductActivity">
 
+    <ImageView
+        android:id="@+id/imageBrowse"
+        android:layout_width="154dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="100dp"
+        android:background="@drawable/image_background"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/editProductName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088"
+        tools:src="@drawable/shoes2" />
+
     <EditText
         android:id="@+id/editProductName"
         android:layout_width="389dp"
@@ -53,15 +70,5 @@
         android:text="Add Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editProductDesc" />
-
-    <ImageView
-        android:id="@+id/imageBrowse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

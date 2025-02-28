@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.semproject.R
 import com.example.semproject.databinding.ActivityAddProductBinding
 import com.example.semproject.model.ProductModel
-import com.example.semproject.model.ProductRepositoryImpl
+import com.example.semproject.repository.ProductRepositoryImpl
 import com.example.semproject.utils.ImageUtils
 import com.example.semproject.utils.LoadingUtils
 import com.example.semproject.viewmodel.ProductViewModel

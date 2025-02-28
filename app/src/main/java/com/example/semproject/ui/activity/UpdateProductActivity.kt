@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.semproject.R
 import com.example.semproject.adapter.ProductAdapter
 import com.example.semproject.databinding.ActivityUpdateProductBinding
-import com.example.semproject.model.ProductRepositoryImpl
+import com.example.semproject.repository.ProductRepositoryImpl
 import com.example.semproject.viewmodel.ProductViewModel
 
 class UpdateProductActivity : AppCompatActivity() {

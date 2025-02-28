@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.example.semproject.model.ProductModel
-import com.example.semproject.model.ProductRepository
+import com.example.semproject.repository.ProductRepository
 
 class ProductViewModel(val repo : ProductRepository) {
     fun addProduct(productModel: ProductModel,
@@ -49,7 +49,7 @@ class ProductViewModel(val repo : ProductRepository) {
 
     fun getAllProducts(){
         _loading.value=true
-        repo.getAllProducts{ product, success, message->
+        repo.getAllProduct{ product, success, message->
             if (success){
                 _allproducts.value = product
                 _loading.value=false

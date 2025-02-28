@@ -21,9 +21,10 @@
 
             <ImageView
                 android:id="@+id/getImage"
-                android:layout_width="264dp"
-                android:layout_height="79dp"
-                app:srcCompat="@drawable/img" />
+                android:layout_width="137dp"
+                android:layout_height="99dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/shoes2" />
 
 
             <TextView
@@ -51,6 +52,16 @@
                 android:layout_height="44dp"
                 android:text="Edit"
                 android:textColor="@color/Darkblue"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text=" Add to Cart"
+                android:textColor="@color/blue"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
 
