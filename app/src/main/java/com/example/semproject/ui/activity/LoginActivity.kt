@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
 
             userViewModel.login(email,password) { success, message ->
                 if (success) {
-                    var intent = Intent(this@LoginActivity,DashBoardActivity::class.java)
+                    var intent = Intent(this@LoginActivity,IntroActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(

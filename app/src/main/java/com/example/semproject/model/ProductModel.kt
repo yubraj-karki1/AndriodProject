@@ -3,21 +3,19 @@ package com.example.semproject.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class ProductModel(var productId : String="",
-                        var productName : String="",
-                        var productDesc : String="",
-                        var price : Int = 0,
-                        var imageUrl : String = "",
+data class ProductModel(
+    var productId : String="",
+    var productName : String="",
+    var productDesc : String="",
+    var price : Int = 0,
 
-
-                        )
+    )
     : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readInt(),
-        parcel.readString() ?: "",
 
         ) {
     }
@@ -27,7 +25,6 @@ data class ProductModel(var productId : String="",
         parcel.writeString(productName)
         parcel.writeInt(price)
         parcel.writeString(productDesc)
-        parcel.writeString(imageUrl)
     }
 
     override fun describeContents(): Int {
@@ -45,4 +42,6 @@ data class ProductModel(var productId : String="",
     }
 
 }
+
+
 

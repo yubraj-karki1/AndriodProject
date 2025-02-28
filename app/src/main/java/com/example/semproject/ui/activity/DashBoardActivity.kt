@@ -33,19 +33,19 @@ class DashBoardActivity : AppCompatActivity() {
         binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(HomeFragment())
+        // Only add the default fragment if this is the first creation
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
+        }
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeId -> replaceFragment(HomeFragment())
                 R.id.profileId -> replaceFragment(ProfileFragment())
                 R.id.cartId-> replaceFragment(cartFragment())
-                else -> {
-
-                }
+                else -> false
             }
-            true
-        };
-
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -53,11 +53,18 @@ class DashBoardActivity : AppCompatActivity() {
             insets
         }
     }
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentransaction: FragmentTransaction =fragmentManager.beginTransaction()
-        fragmentransaction.replace(binding.frameLayout.id,fragment)
-        fragmentransaction.commit()
 
+    private fun replaceFragment(fragment: Fragment): Boolean {
+        try {
+            val fragmentManager: FragmentManager = supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(binding.frameLayout.id, fragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+            return true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        }
     }
 }

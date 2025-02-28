@@ -7,6 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.semproject.R
 
-class ProfileFragment : Fragment() {
+class CartFragment : Fragment() {
 
 }

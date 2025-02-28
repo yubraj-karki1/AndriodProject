@@ -20,11 +20,13 @@ class IntroActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.startBtn.setOnClickListener{
-            startActivity(Intent(this@IntroActivity,DashBoardActivity::class.java))
+            val intent = Intent(this@IntroActivity,ProductDashboardActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
         binding.signupBtnNav.setOnClickListener{
-            startActivity(Intent(this@IntroActivity,LoginActivity::class.java))
+            startActivity(Intent(this@IntroActivity, LoginActivity::class.java))
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
