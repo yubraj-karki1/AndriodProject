@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.UpdateProductActivity">
+
+    <EditText
+        android:id="@+id/editProductNameid"
+        android:layout_width="409dp"
+        android:layout_height="56dp"
+        android:hint="Enter Product Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editProductPriceid"
+        android:layout_width="410dp"
+        android:layout_height="58dp"
+        android:hint="Edit Product Price"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProductNameid" />
+
+    <EditText
+        android:id="@+id/editProductDescid"
+        android:layout_width="409dp"
+        android:layout_height="64dp"
+        android:hint="Enter Product Desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProductPriceid" />
+
+    <Button
+        android:id="@+id/btnUpdateProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="80dp"
+        android:text="Update Product"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProductDescid" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

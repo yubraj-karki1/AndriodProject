@@ -1,5 +1,7 @@
 package com.example.semproject.viewmodel
 
+import android.content.Context
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import com.example.semproject.model.ProductModel
 import com.example.semproject.model.ProductRepository
@@ -54,4 +56,8 @@ class ProductViewModel(val repo : ProductRepository) {
             }
         }
     }
+    fun uploadImage(context: Context, imageUri: Uri, callback: (String?) -> Unit){
+        repo.uploadImage(context, imageUri, callback)
+    }
 }
+
