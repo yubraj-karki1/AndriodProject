@@ -6,6 +6,8 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.provider.OpenableColumns
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.semproject.model.ProductModel
@@ -102,11 +104,16 @@ class ProductRepositoryImpl: ProductRepository {
 
         })
     }
+
+//    override fun addToCart(productId: String, callback: (Boolean, String) -> Unit) {
+//        TODO("Not yet implemented")
+//    }
+
     private val cloudinary = Cloudinary(
         mapOf(
-            "cloud_name" to "dvztiygb9",
-            "api_key" to "755714538743444",
-            "api_secret" to "GjdgSzpbKnK-DWASwytXK_8yZu8"
+            "cloud_name" to "docqwxgzc",
+            "api_key" to "636754294934794",
+            "api_secret" to "XSmpfUXKDLUViiMbHMWf0bRSt30"
         )
     )
 

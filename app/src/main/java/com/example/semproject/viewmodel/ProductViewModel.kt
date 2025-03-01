@@ -57,6 +57,8 @@ class ProductViewModel(val repo : ProductRepository) {
                 _loading.value=false
             }
         }
+
+
     }fun uploadImage(context: Context, imageUri: Uri, callback: (String?) -> Unit){
         repo.uploadImage(context, imageUri, callback)
     }

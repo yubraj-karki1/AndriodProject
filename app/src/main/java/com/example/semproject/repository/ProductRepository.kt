@@ -21,6 +21,7 @@ interface ProductRepository {
 
     fun getAllProducts(callback: (List<ProductModel>?,
                                   Boolean, String) -> Unit)
+//    fun addToCart(productId: String, callback: (Boolean, String) -> Unit)
 
     fun uploadImage(context: Context, imageUri: Uri, callback: (String?) -> Unit)
 
