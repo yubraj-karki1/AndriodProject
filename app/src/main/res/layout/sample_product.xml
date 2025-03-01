@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="@color/grey"
         app:cardCornerRadius="15dp">
@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/getImage"
-                android:layout_width="137dp"
-                android:layout_height="99dp"
+                android:layout_width="191dp"
+                android:layout_height="112dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/shoes2" />
 
@@ -28,13 +28,17 @@
             <TextView
                 android:id="@+id/displayName"
                 android:layout_width="396dp"
-                android:layout_height="32dp"
-                android:text="Product Name" />
+                android:layout_height="40dp"
+                android:text="Product Name"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/displayPrice"
                 android:layout_width="399dp"
                 android:layout_height="37dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:text="Product Price" />
 
 
@@ -42,24 +46,17 @@
                 android:id="@+id/displayDesc"
                 android:layout_width="396dp"
                 android:layout_height="44dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:text="Product Desc" />
 
             <TextView
                 android:id="@+id/displayEdit"
                 android:layout_width="396dp"
                 android:layout_height="44dp"
+                android:textSize="18dp"
                 android:text="Edit"
                 android:textColor="@color/Darkblue"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text=" Add to Cart"
-                android:textColor="@color/blue"
-                android:textSize="25sp"
                 android:textStyle="bold" />
 
 

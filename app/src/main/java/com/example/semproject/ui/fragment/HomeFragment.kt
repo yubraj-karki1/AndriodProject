@@ -1,13 +1,18 @@
 package com.example.semproject.ui.fragment
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.semproject.R
 import com.example.semproject.adapter.ProductAdapter
 import com.example.semproject.databinding.FragmentHomeBinding
@@ -17,11 +22,12 @@ import com.example.semproject.ui.activity.AddProductActivity
 import com.example.semproject.viewmodel.ProductViewModel
 
 
-class HomeFragment : Fragment() {
+
+    class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var adapter: ProductAdapter
     private lateinit var productViewModel: ProductViewModel
+    private lateinit var adapter: ProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +37,12 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onResume() {
         super.onResume()
-        ProductViewModel.getAllTasks()
+        productViewModel.getAllProducts() // Fetch latest products
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,26 +55,29 @@ class HomeFragment : Fragment() {
         binding.recycleView.adapter = adapter
         binding.recycleView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Observe tasks from ViewModel
-        ProductViewModel.allTasks.observe(viewLifecycleOwner) { tasks ->
-            tasks?.let {
+        // Observe products from ViewModel
+        productViewModel.allproducts.observe(viewLifecycleOwner) { products ->
+            products?.let {
                 adapter.updateData(it)
             }
         }
 
         // Observe loading state
-        ProductViewModel.loading.observe(viewLifecycleOwner) { isLoading ->
+        productViewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
 
+        // Fetch all products
+        productViewModel.getAllProducts()
 
-        // Fetch all tasks
-        ViewModel.getAllTasks()
-
-        // Set up FAB to navigate to AddTaskActivity
+        // Set up FAB to navigate to AddProductActivity
         binding.floatingBtn.setOnClickListener {
             val intent = Intent(requireContext(), AddProductActivity::class.java)
             startActivity(intent)
         }
     }
+
+
+
 }
+
