@@ -7,11 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.UpdateProductActivity">
 
+    <ImageView
+        android:id="@+id/udtimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="151dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <EditText
         android:id="@+id/editProductNameid"
         android:layout_width="409dp"
         android:layout_height="56dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="244dp"
         android:hint="Enter Product Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

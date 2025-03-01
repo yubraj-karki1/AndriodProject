@@ -1,5 +1,6 @@
 package com.example.semproject.ui.activity
 
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.semproject.R
 import com.example.semproject.databinding.ActivityUpdateProductBinding
 import com.example.semproject.repository.ProductRepositoryImpl
+import com.example.semproject.utils.ImageUtils
+import com.example.semproject.utils.LoadingUtils
 import com.example.semproject.viewmodel.ProductViewModel
 
 class UpdateProductActivity : AppCompatActivity() {
@@ -16,11 +19,13 @@ class UpdateProductActivity : AppCompatActivity() {
 
     lateinit var productViewModel: ProductViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityUpdateProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val repo = ProductRepositoryImpl()
         productViewModel = ProductViewModel(repo)

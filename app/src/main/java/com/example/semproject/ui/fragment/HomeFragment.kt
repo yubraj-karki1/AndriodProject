@@ -74,61 +74,6 @@ import com.example.semproject.viewmodel.ProductViewModel
         binding.floatingBtn.setOnClickListener {
             val intent = Intent(requireContext(), AddProductActivity::class.java)
             startActivity(intent)
-        }
+        }}}
 
-        ItemTouchHelper(object :
-            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false // We don't support moving items
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val productId = adapter.getProductId(viewHolder.adapterPosition)
-
-                if (direction == ItemTouchHelper.RIGHT) {
-                    // Swipe Right: Delete Product
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Delete Product")
-                        .setMessage("Are you sure you want to delete this product?")
-                        .setNegativeButton("No") { dialog, _ ->
-                            adapter.notifyItemChanged(viewHolder.adapterPosition)
-                            dialog.dismiss()
-                        }
-                        .setPositiveButton("Yes") { dialog, _ ->
-                            productViewModel.deleteProduct(productId) { success, message ->
-                                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                            }
-                            dialog.dismiss()
-                        }
-                        .setCancelable(false)
-                        .show()
-                } else if (direction == ItemTouchHelper.LEFT) {
-                    // Swipe Left: Add Product to Cart
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Add to Cart?")
-                        .setMessage("Do you want to add this product to your cart?")
-                        .setNegativeButton("No") { dialog, _ ->
-                            adapter.notifyItemChanged(viewHolder.adapterPosition)
-                            dialog.dismiss()
-                        }
-                        .setPositiveButton("Yes") { dialog, _ ->
-                            cartViewModel.addToCart(productId) { success, message ->
-                                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-                            }
-                            dialog.dismiss()
-                        }
-                        .setCancelable(false)
-                        .show()
-                }
-            }
-        })
-
-        itemTouchHelper.attachToRecyclerView(recycleView)
-
-
-    }}
 

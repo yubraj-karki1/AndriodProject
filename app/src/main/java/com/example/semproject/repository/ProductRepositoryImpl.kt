@@ -105,9 +105,37 @@ class ProductRepositoryImpl: ProductRepository {
         })
     }
 
-//    override fun addToCart(productId: String, callback: (Boolean, String) -> Unit) {
-//        TODO("Not yet implemented")
-//    }
+    override fun addToCart(productId: String, userId: String, callback: (Boolean, String) -> Unit) {
+        val cartRef = database.reference.child("carts").child(userId)
+        
+        // First check if the product exists
+        ref.child(productId).get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val product = task.result.getValue(ProductModel::class.java)
+                if (product != null) {
+                    // Add to cart with timestamp
+                    val cartItem = mapOf(
+                        "productId" to productId,
+                        "addedAt" to System.currentTimeMillis(),
+                        "quantity" to 1
+                    )
+                    
+                    cartRef.child(productId).setValue(cartItem)
+                        .addOnCompleteListener { cartTask ->
+                            if (cartTask.isSuccessful) {
+                                callback(true, "Product added to cart successfully")
+                            } else {
+                                callback(false, cartTask.exception?.message ?: "Failed to add to cart")
+                            }
+                        }
+                } else {
+                    callback(false, "Product not found")
+                }
+            } else {
+                callback(false, task.exception?.message ?: "Error checking product")
+            }
+        }
+    }
 
     private val cloudinary = Cloudinary(
         mapOf(

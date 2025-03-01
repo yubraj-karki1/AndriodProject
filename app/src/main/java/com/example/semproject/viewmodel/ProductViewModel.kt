@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.semproject.model.ProductModel
 import com.example.semproject.repository.ProductRepository
+import com.example.semproject.ui.fragment.CartFragment
 
 class ProductViewModel(val repo : ProductRepository) {
     fun addProduct(productModel: ProductModel,
@@ -35,7 +36,6 @@ class ProductViewModel(val repo : ProductRepository) {
         get()= _allproducts
 
 
-
     fun getProductById(productId: String){
         repo.getProductById(productId){
                 model,success,message->
@@ -59,7 +59,11 @@ class ProductViewModel(val repo : ProductRepository) {
         }
 
 
+
+
     }fun uploadImage(context: Context, imageUri: Uri, callback: (String?) -> Unit){
         repo.uploadImage(context, imageUri, callback)
     }
+
+
 }
