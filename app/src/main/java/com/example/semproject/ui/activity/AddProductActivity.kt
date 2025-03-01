@@ -66,14 +66,16 @@ class AddProductActivity : AppCompatActivity() {
     private fun uploadImage() {
         loadingUtils.show()
         imageUri?.let { uri ->
-            productViewModel.uploadImage(this, uri) { imageUrl ->
-                Log.d("checpoirs", imageUrl.toString())
+            productViewModel.uploadImage(this, uri, ) { imageUrl ->
+                Log.d("ImageUpload", "Uploaded URL: $imageUrl")
                 if (imageUrl != null) {
                     addProduct(imageUrl)
                 } else {
                     Log.e("Upload Error", "Failed to upload image to Cloudinary")
+                    loadingUtils.dismiss()
                 }
             }
+
         }
     }
 

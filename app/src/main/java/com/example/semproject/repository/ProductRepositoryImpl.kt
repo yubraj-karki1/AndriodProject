@@ -119,7 +119,6 @@ class ProductRepositoryImpl: ProductRepository {
                         "addedAt" to System.currentTimeMillis(),
                         "quantity" to 1
                     )
-                    
                     cartRef.child(productId).setValue(cartItem)
                         .addOnCompleteListener { cartTask ->
                             if (cartTask.isSuccessful) {
