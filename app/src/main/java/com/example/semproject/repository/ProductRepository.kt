@@ -24,7 +24,10 @@ interface ProductRepository {
 
     fun addToCart(productId: String, userId: String, callback: (Boolean, String) -> Unit)
 
+
+
     fun uploadImage(context: Context, imageUri: Uri, callback: (String?) -> Unit)
 
     fun getFileNameFromUri(context: Context, uri: Uri): String?
+
 }
