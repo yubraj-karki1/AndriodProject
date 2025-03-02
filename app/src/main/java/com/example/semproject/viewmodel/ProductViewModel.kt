@@ -2,12 +2,9 @@ package com.example.semproject.viewmodel
 
 import android.content.Context
 import android.net.Uri
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.semproject.model.ProductModel
 import com.example.semproject.repository.ProductRepository
-import com.example.semproject.ui.fragment.CartFragment
 
 class ProductViewModel(val repo: ProductRepository) {
     fun addProduct(productModel: ProductModel, callback: (Boolean, String) -> Unit) {
@@ -57,7 +54,7 @@ class ProductViewModel(val repo: ProductRepository) {
     }
 
     // Add to Cart Implementation
-    fun addToCart(productId: String, quantity: Int, callback: (Boolean, String) -> Unit) {
-        repo.addToCart(productId, quantity.toString(), callback)
+    fun addToCart(context: String, productId: String, callback: (Boolean) -> Unit) {
+        repo.addToCart(context.toString(), productId, callback)
     }
-}
+    }

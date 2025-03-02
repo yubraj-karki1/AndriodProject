@@ -6,8 +6,6 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.provider.OpenableColumns
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.cloudinary.Cloudinary
 import com.cloudinary.utils.ObjectUtils
 import com.example.semproject.model.ProductModel
@@ -105,7 +103,7 @@ class ProductRepositoryImpl: ProductRepository {
         })
     }
 
-    override fun addToCart(productId: String, userId: String, callback: (Boolean, String) -> Unit) {
+    override fun addToCart(productId: String, userId: String, callback: (Boolean) -> Unit) {
         val cartRef = database.reference.child("carts").child(userId)
 
         // Fetch product details first
@@ -116,11 +114,11 @@ class ProductRepositoryImpl: ProductRepository {
                     if (existingQuantity != null) {
                         // If exists, increase quantity
                         cartRef.child(productId).child("quantity").setValue(existingQuantity + 1)
-                            .addOnSuccessListener { callback(true, "Product quantity updated in cart") }
-                            .addOnFailureListener { callback(false, it.message ?: "Failed to update quantity") }
+                            .addOnSuccessListener { callback(true) }
+                            .addOnFailureListener { callback(false) }
                     } else {
                         // If new, add product to cart
-                        val cartItem = hashMapOf(
+                        val cartItem = mapOf(
                             "productId" to productId,
                             "productName" to product.productName,
                             "productPrice" to product.price,
@@ -128,15 +126,16 @@ class ProductRepositoryImpl: ProductRepository {
                             "quantity" to 1
                         )
                         cartRef.child(productId).setValue(cartItem)
-                            .addOnSuccessListener { callback(true, "Product added to cart successfully") }
-                            .addOnFailureListener { callback(false, it.message ?: "Failed to add product") }
+                            .addOnSuccessListener { callback(true) }
+                            .addOnFailureListener { callback(false) }
                     }
                 }
             } else {
-                callback(false, "Product not found: $message")
+                callback(false) // Product not found
             }
         }
     }
+
 
     private fun getCartItem(cartRef: DatabaseReference, productId: String, callback: (Int?) -> Unit) {
         cartRef.child(productId).addListenerForSingleValueEvent(object : ValueEventListener {
@@ -210,7 +209,5 @@ class ProductRepositoryImpl: ProductRepository {
         }
         return fileName
     }
-
-
 
 }

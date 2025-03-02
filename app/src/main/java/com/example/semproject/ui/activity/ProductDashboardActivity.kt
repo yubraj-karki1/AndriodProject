@@ -27,8 +27,8 @@ class ProductDashboardActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homeId -> replaceFragment(HomeFragment())
-                R.id.profileId -> replaceFragment(ProfileFragment())
                 R.id.cartId-> replaceFragment(CartFragment())
+                R.id.profileId -> replaceFragment(ProfileFragment())
                 else -> {
 
                 }
@@ -43,9 +43,9 @@ class ProductDashboardActivity : AppCompatActivity() {
     }
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentransaction: FragmentTransaction =fragmentManager.beginTransaction()
-        fragmentransaction.replace(binding.frameLayout.id,fragment)
-        fragmentransaction.commit()
+        val fragmenttransaction: FragmentTransaction =fragmentManager.beginTransaction()
+        fragmenttransaction.replace(binding.frameLayout.id,fragment)
+        fragmenttransaction.commit()
 
     }
 }

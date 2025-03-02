@@ -10,6 +10,7 @@ data class ProductModel(
     var price : Int = 0,
     var imageUrl : String = "",
 ) : Parcelable{
+
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",

@@ -22,7 +22,7 @@ interface ProductRepository {
     fun getAllProducts(callback: (List<ProductModel>?,
                                   Boolean, String) -> Unit)
 
-    fun addToCart(productId: String, userId: String, callback: (Boolean, String) -> Unit)
+    fun addToCart(productId: String, userId: String, callback: (Boolean) -> Unit)
 
 
 

@@ -112,8 +112,11 @@ class HomeFragment : Fragment() {
 
     // Function to handle "Add to Cart" button click
     private fun addToCart(productId: String) {
-        productViewModel.addToCart(productId.toString(), 1) { success, message ->
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        val userId = productId // Ensure you retrieve the user's ID properly
+
+        productViewModel.addToCart(productId, userId) { success ->
+            val message = if (success) "Product added to cart successfully" else "Failed to add product"
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }
